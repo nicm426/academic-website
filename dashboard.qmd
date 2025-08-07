@@ -7,7 +7,7 @@ title: "Food Inflation Dashboard"
 This page will feature an interactive dashboard displaying:
 
 - Real-time food price inflation forecasts
-- Comparison of MARRF model predictions vs. traditional SARIMA models
+- Comparison of various model predictions
 - Interactive visualizations of macroeconomic drivers
 - Historical forecast accuracy metrics
 - Time-varying parameter evolution
@@ -15,7 +15,7 @@ This page will feature an interactive dashboard displaying:
 The dashboard is currently under development and will be deployed soon.
 
 ### Planned Features:
-- **Monthly forecast updates** with automated data pulls from FRED
+- **Monthly forecast updates** with automated data pulls
 - **Interactive charts** showing inflation trends across food categories
 - **Model performance metrics** comparing different forecasting approaches
 - **Downloadable forecast data** for research and analysis
