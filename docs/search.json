@@ -81,28 +81,28 @@
     "href": "dashboard.html",
     "title": "Food Inflation Dashboard",
     "section": "",
-    "text": "This page will feature an interactive dashboard displaying:\n\nReal-time food price inflation forecasts\nComparison of MARRF model predictions vs. traditional SARIMA models\nInteractive visualizations of macroeconomic drivers\nHistorical forecast accuracy metrics\nTime-varying parameter evolution\n\nThe dashboard is currently under development and will be deployed soon.\n\n\n\nMonthly forecast updates with automated data pulls from FRED\nInteractive charts showing inflation trends across food categories\nModel performance metrics comparing different forecasting approaches\nDownloadable forecast data for research and analysis\n\nCheck back soon for the live dashboard!"
+    "text": "This page will feature an interactive dashboard displaying:\n\nReal-time food price inflation forecasts\nComparison of various model predictions\nInteractive visualizations of macroeconomic drivers\nHistorical forecast accuracy metrics\nTime-varying parameter evolution\n\nThe dashboard is currently under development and will be deployed soon.\n\n\n\nMonthly forecast updates with automated data pulls\nInteractive charts showing inflation trends across food categories\nModel performance metrics comparing different forecasting approaches\nDownloadable forecast data for research and analysis\n\nCheck back soon for the live dashboard!"
   },
   {
     "objectID": "dashboard.html#coming-soon",
     "href": "dashboard.html#coming-soon",
     "title": "Food Inflation Dashboard",
     "section": "",
-    "text": "This page will feature an interactive dashboard displaying:\n\nReal-time food price inflation forecasts\nComparison of MARRF model predictions vs. traditional SARIMA models\nInteractive visualizations of macroeconomic drivers\nHistorical forecast accuracy metrics\nTime-varying parameter evolution\n\nThe dashboard is currently under development and will be deployed soon.\n\n\n\nMonthly forecast updates with automated data pulls from FRED\nInteractive charts showing inflation trends across food categories\nModel performance metrics comparing different forecasting approaches\nDownloadable forecast data for research and analysis\n\nCheck back soon for the live dashboard!"
+    "text": "This page will feature an interactive dashboard displaying:\n\nReal-time food price inflation forecasts\nComparison of various model predictions\nInteractive visualizations of macroeconomic drivers\nHistorical forecast accuracy metrics\nTime-varying parameter evolution\n\nThe dashboard is currently under development and will be deployed soon.\n\n\n\nMonthly forecast updates with automated data pulls\nInteractive charts showing inflation trends across food categories\nModel performance metrics comparing different forecasting approaches\nDownloadable forecast data for research and analysis\n\nCheck back soon for the live dashboard!"
   },
   {
     "objectID": "research.html",
     "href": "research.html",
     "title": "Research",
     "section": "",
-    "text": "With Olga Isengildina Massa and Shamar Stewart\nAbstract: This study proposes a Macroeconomic Auto-Regressive Random Forest (MARRF) approach for forecasting annual U.S. food price inflation and evaluates its performance relative to the USDA’s current SARIMA-based methodology. Leveraging the flexibility of ensemble machine learning and the interpretability of Generalized Time-Varying Parameters (GTVPs), the MARRF model integrates high-dimensional macroeconomic information extracted from the FRED-MD database to produce forecasts that are both accurate and economically informative. Through a fixed-event forecasting exercise spanning 2003–2022, we find that the MARRF model outperforms the SARIMA benchmark in terms of mean absolute percent errors (MAPE) and forecast bias, particularly at medium and long horizons and during periods of economic crisis. Variable importance metrics and time-varying parameters reveal shifting macroeconomic drivers of food inflation across time and forecast horizons, offering novel insights into the transmission of macroeconomic shocks to food prices.\nPresentations: - NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management (2025) - Agricultural and Applied Economics Association Annual Meeting (2024)\nWorking Paper (PDF)"
+    "text": "Working paper - details coming soon\nPresentations: - NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management (2025) - Agricultural and Applied Economics Association Annual Meeting (2024)"
   },
   {
     "objectID": "research.html#working-papers",
     "href": "research.html#working-papers",
     "title": "Research",
     "section": "",
-    "text": "With Olga Isengildina Massa and Shamar Stewart\nAbstract: This study proposes a Macroeconomic Auto-Regressive Random Forest (MARRF) approach for forecasting annual U.S. food price inflation and evaluates its performance relative to the USDA’s current SARIMA-based methodology. Leveraging the flexibility of ensemble machine learning and the interpretability of Generalized Time-Varying Parameters (GTVPs), the MARRF model integrates high-dimensional macroeconomic information extracted from the FRED-MD database to produce forecasts that are both accurate and economically informative. Through a fixed-event forecasting exercise spanning 2003–2022, we find that the MARRF model outperforms the SARIMA benchmark in terms of mean absolute percent errors (MAPE) and forecast bias, particularly at medium and long horizons and during periods of economic crisis. Variable importance metrics and time-varying parameters reveal shifting macroeconomic drivers of food inflation across time and forecast horizons, offering novel insights into the transmission of macroeconomic shocks to food prices.\nPresentations: - NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management (2025) - Agricultural and Applied Economics Association Annual Meeting (2024)\nWorking Paper (PDF)"
+    "text": "Working paper - details coming soon\nPresentations: - NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management (2025) - Agricultural and Applied Economics Association Annual Meeting (2024)"
   },
   {
     "objectID": "research.html#research-interests",
