@@ -4,15 +4,12 @@ title: "Research"
 
 ## Working Papers
 
-### Food Price Inflation Forecasting: Insights from a Macroeconomic Auto-Regressive Random Forest Approach
+### Food Price Inflation Forecasting
+**Working paper - details coming soon**
 
-**With Olga Isengildina Massa and Shamar Stewart**
-
-*Abstract:* This study proposes a Macroeconomic Auto-Regressive Random Forest (MARRF) approach for forecasting annual U.S. food price inflation and evaluates its performance relative to the USDA's current SARIMA-based methodology. Leveraging the flexibility of ensemble machine learning and the interpretability of Generalized Time-Varying Parameters (GTVPs), the MARRF model integrates high-dimensional macroeconomic information extracted from the FRED-MD database to produce forecasts that are both accurate and economically informative. Through a fixed-event forecasting exercise spanning 2003–2022, we find that the MARRF model outperforms the SARIMA benchmark in terms of mean absolute percent errors (MAPE) and forecast bias, particularly at medium and long horizons and during periods of economic crisis. Variable importance metrics and time-varying parameters reveal shifting macroeconomic drivers of food inflation across time and forecast horizons, offering novel insights into the transmission of macroeconomic shocks to food prices.
-
-**Presentations:** - NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management (2025) - Agricultural and Applied Economics Association Annual Meeting (2024)
-
-[Working Paper (PDF)](papers/food-inflation-marrf.pdf)
+**Presentations:**
+- NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management (2025)
+- Agricultural and Applied Economics Association Annual Meeting (2024)
 
 ------------------------------------------------------------------------
 
