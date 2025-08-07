@@ -11,29 +11,21 @@ title: "Research"
 - NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management (2025)
 - Agricultural and Applied Economics Association Annual Meeting (2024)
 
-------------------------------------------------------------------------
+---
 
 ## Research Interests
 
 My research focuses on the intersection of agricultural economics, quantitative methods, and policy analysis. I am particularly interested in:
 
--   **Commodity Markets**: Price discovery, market integration, and volatility spillovers in agricultural futures markets
--   **Agrifood Value Chains**: Developing quantitative tools and strategies for risk management along agricultural value chains
--   **Forecasting Methods**: Developing and applying advanced time-series econometric models and machine learning algorithms to improve prediction accuracy
--   **Macroeconomic Transmission**: Understanding how macroeconomic shocks propagate through food systems and affect agricultural markets
+- **Commodity Markets**: Price discovery, market integration, and volatility spillovers in agricultural futures markets
+- **Agrifood Value Chains**: Developing quantitative tools and strategies for risk management along agricultural value chains
+- **Forecasting Methods**: Developing and applying advanced time-series econometric models and machine learning algorithms to improve prediction accuracy
+- **Macroeconomic Transmission**: Understanding how macroeconomic shocks propagate through food systems and affect agricultural markets
 
-## Research in Progress
-
-### Agricultural Sector Financial Stress Index
-
-*Early stage development*
-
-Developing comprehensive measures of financial stress specific to the agricultural sector, incorporating both traditional financial indicators and novel machine learning approaches to provide early warning signals for policy intervention.
-
-------------------------------------------------------------------------
+---
 
 ## Conference Presentations
 
--   **2025**: NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management - "Food Price Inflation Forecasting: Insights from a Macroeconomic Auto-Regressive Random Forest Approach" [\[Slides\]](presentations/NCCC134_2025_slides.pdf)
+- **2025**: NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management - "Food Price Inflation Forecasting: Insights from a Macroeconomic Auto-Regressive Random Forest Approach" [[Slides]](presentations/NCCC134_2025_slides.pdf)
 
--   **2024**: Agricultural and Applied Economics Association Annual Meeting - "Food Price Inflation Forecasting: Insights from a Macroeconomic Auto-Regressive Random Forest Approach" [\[Slides\]](presentations/AAEA_2024_slides.pdf)
+- **2024**: Agricultural and Applied Economics Association Annual Meeting - "Food Price Inflation Forecasting: Insights from a Macroeconomic Auto-Regressive Random Forest Approach" [[Slides]](presentations/AAEA_2024_slides.pdf)
