@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "William N. McWilliams"
+  description: "PhD Student - Virginia Tech Department of Applied and Agricultural Economics"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: teaching.qmd
+        text: Teaching
+      - href: dashboard.qmd
+        text: Food Inflation Dashboard
+      - href: blog/index.qmd
+        text: Blog
+    right:
+      - icon: github
+        href: https://github.com/nicm426
+      - icon: envelope
+        href: mailto:wnm007@vt.edu
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+

@@ -1,0 +1,56 @@
+/* Custom CSS for the website */
+
+/* Make the content use more of the screen width */
+.quarto-container {
+  max-width: 1200px !important;
+}
+
+/* Adjust the about section to use more width */
+.about-entity {
+  max-width: 1100px !important;
+  margin: 0 auto;
+}
+
+/* Make the main content area wider */
+main {
+  max-width: 1100px !important;
+  margin: 0 auto;
+}
+
+/* Improve spacing for research interests */
+.content h2 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: #2c3e50;
+}
+
+.content ul {
+  line-height: 1.8;
+}
+
+.content ul li {
+  margin-bottom: 0.5em;
+}
+
+/* Style the Quick Links section */
+.content h2:last-of-type {
+  margin-top: 2em;
+}
+
+/* Improve link styling in about section */
+.about-links {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.about-link {
+  text-decoration: none;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.about-link:hover {
+  background-color: #f0f0f0;
+}

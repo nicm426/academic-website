@@ -1,0 +1,15 @@
+---
+title: "Blog"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+---
+
+## Data Science & Agricultural Economics Blog
+
+Welcome to my blog where I share insights on food economics, data science applications in agriculture, and inflation forecasting methods.
+
+
+*First post coming soon!*

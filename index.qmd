@@ -1,0 +1,45 @@
+---
+title: "Welcome"
+about:
+  template: trestles
+  image: profile.jpg
+  links:
+    - icon: file-earmark-pdf
+      text: CV
+      href: CV/McWilliams_CV.pdf
+    - icon: envelope
+      text: Email
+      href: mailto:wnm007@vt.edu
+    - icon: github
+      text: GitHub
+      href: https://github.com/nicm426
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/nicmcwilliams
+---
+
+## About Me
+
+I am working towards my Ph.D. in Agricultural and Applied Economics at Virginia Tech, with an expected graduation in Summer 2027. My research interests focus on commodity markets, agrifood value chains, and the intersection of theory-driven and algorithmic approaches to forecasting and inference. I combine traditional econometric methods with machine learning techniques to develop more accurate and interpretable models for understanding agricultural market dynamics.
+
+## Research Interests
+
+My research focuses on the intersection of agricultural economics, quantitative methods, and policy analysis. I am particularly interested in:
+
+- **Commodity Markets**: Price discovery, market integration, and volatility spillovers in agricultural futures markets
+
+- **Agrifood Value Chains**: Developing quantitative tools and strategies for risk management along agricultural value chains
+
+- **Forecasting Methods**: Developing and applying advanced time-series econometric models and machine learning algorithms to improve prediction accuracy
+
+- **Macroeconomic Transmission**: Understanding how macroeconomic shocks propagate through food systems and affect agricultural markets
+
+## Current Research
+
+My current research develops novel methods for forecasting food price inflation by integrating high-dimensional macroeconomic data with machine learning approaches. This work aims to improve upon traditional forecasting models by capturing complex, nonlinear relationships while maintaining economic interpretability. I'm particularly interested in how macroeconomic shocks transmit through food systems and how advanced statistical methods can better predict these dynamics during periods of economic volatility.
+
+## Quick Links
+
+- 📊 [Latest Food Inflation Forecast](dashboard.qmd)
+- 📝 [Recent Blog Posts](blog/index.qmd)  
+- 🎓 [Teaching Materials](teaching.qmd)
