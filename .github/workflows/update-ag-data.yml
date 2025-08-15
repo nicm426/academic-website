@@ -1,0 +1,87 @@
+name: Update Agricultural Data
+
+# Run quarterly on the 15th of January, April, July, October at 2 AM EST
+on:
+  schedule:
+    # Cron format: minute hour day month day-of-week
+    # 7 AM UTC = 2 AM EST (during standard time)
+    - cron: '0 7 15 1,4,7,10 *'
+  
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+    inputs:
+      use_local:
+        description: 'Use local files instead of downloading'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Cache pip packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas requests openpyxl
+        # If you have a requirements.txt file:
+        # pip install -r requirements.txt
+    
+    - name: Run data update script
+      run: |
+        python update_ag_data.py ${{ github.event.inputs.use_local == 'true' && '--use-local' || '' }}
+      continue-on-error: true
+    
+    - name: Check for changes
+      id: git-check
+      run: |
+        git diff --exit-code --quiet ag-economy-dashboard/data/ || echo "changes=true" >> $GITHUB_OUTPUT
+    
+    - name: Commit and push if changed
+      if: steps.git-check.outputs.changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add ag-economy-dashboard/data/*.json
+        git add ag-economy-dashboard/data/update_metadata.json
+        git commit -m "🔄 Update agricultural data - $(date +'%Y-%m-%d')"
+        git push
+    
+    - name: Create issue if update failed
+      if: failure()
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const date = new Date().toISOString().split('T')[0];
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: `⚠️ Agricultural Data Update Failed - ${date}`,
+            body: `The automated quarterly data update failed on ${date}.\n\nPlease check:\n- Federal Reserve data URLs may have changed\n- Excel file formats may have been updated\n- Network connectivity issues\n\n[View workflow run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`,
+            labels: ['data-update', 'automated']
+          })
+    
+    - name: Send success notification
+      if: success() && steps.git-check.outputs.changes == 'true'
+      run: |
+        echo "✅ Data successfully updated on $(date +'%Y-%m-%d')"
+        # You could add email notification here if desired

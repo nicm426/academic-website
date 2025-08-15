@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - ag-economy-dashboard/
 
 website:
   title: "William N. McWilliams"
@@ -13,8 +15,12 @@ website:
         text: Research
       - href: teaching.qmd
         text: Teaching
-      - href: dashboard.qmd
-        text: Food Inflation Dashboard
+      - text: Dashboards
+        menu:
+          - href: food-inflation-dashboard.qmd
+            text: Food Inflation Forecast
+          - href: ag-economy-dashboard/index.html
+            text: Agricultural Economy
       - href: blog/index.qmd
         text: Blog
     right:
@@ -28,4 +34,3 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-

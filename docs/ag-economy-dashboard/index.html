@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Economy Dashboard - William N. McWilliams</title>
+    
+    <!-- Bootstrap CSS (Cosmo theme to match your site) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.0/cosmo/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* Match your website's styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .nav-tabs .nav-link {
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        .nav-tabs .nav-link.active {
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+            color: #667eea;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #667eea;
+            font-weight: 600;
+        }
+        
+        .metric-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .metric-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .data-controls {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .series-selector {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+        
+        .btn-primary:hover {
+            background-color: #764ba2;
+            border-color: #764ba2;
+        }
+        
+        .export-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .description-panel {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        #mainChart, #secondaryChart {
+            position: relative;
+            min-height: 400px;
+        }
+        
+        .last-updated {
+            font-size: 0.85rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .home-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .home-link:hover {
+            opacity: 1;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <h1><i class="fas fa-chart-line"></i> Agricultural Economy Dashboard</h1>
+                    <p class="mb-0">Federal Reserve Agricultural Finance Data Explorer</p>
+                    <p class="last-updated mt-2">Data Updated: Q2 2025</p>
+                </div>
+                <div class="text-end">
+                    <a href="../index.html" class="home-link">
+                        <i class="fas fa-home"></i> Return to Main Site
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs mb-4" id="dashboardTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button">
+                    <i class="fas fa-dashboard"></i> Overview
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="regional-tab" data-bs-toggle="tab" data-bs-target="#regional" type="button">
+                    <i class="fas fa-map"></i> Regional Analysis
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="credit-tab" data-bs-toggle="tab" data-bs-target="#credit" type="button">
+                    <i class="fas fa-credit-card"></i> Credit Conditions
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="explorer-tab" data-bs-toggle="tab" data-bs-target="#explorer" type="button">
+                    <i class="fas fa-search"></i> Data Explorer
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button">
+                    <i class="fas fa-info-circle"></i> About
+                </button>
+            </li>
+        </ul>
+        
+        <!-- Tab Content -->
+        <div class="tab-content" id="dashboardContent">
+            <!-- Overview Tab -->
+            <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-value" id="totalLoansMetric">$45.2B</div>
+                            <div class="metric-label">Total Agricultural Loans</div>
+                            <small class="text-muted">Q2 2025</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-value" id="avgRateMetric">7.25%</div>
+                            <div class="metric-label">Avg. Interest Rate</div>
+                            <small class="text-muted">Operating Loans</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-value" id="farmlandMetric">+3.2%</div>
+                            <div class="metric-label">Farmland Value Change</div>
+                            <small class="text-muted">Year-over-Year</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-value" id="delinquencyMetric">2.1%</div>
+                            <div class="metric-label">Delinquency Rate</div>
+                            <small class="text-muted">90+ Days</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area"></i> National Trends Overview
+                    </div>
+                    <div class="card-body">
+                        <div id="overviewChart" style="min-height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Regional Analysis Tab -->
+            <div class="tab-pane fade" id="regional" role="tabpanel">
+                <div class="data-controls">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fas fa-map-marked-alt"></i> Click Districts to Select
+                                </div>
+                                <div class="card-body p-2">
+                                    <div id="districtMap" style="min-height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label">Select Districts:</label>
+                                    <select class="form-select" id="districtSelector" multiple style="height: 120px;">
+                                        <option value="CHI" selected>Chicago</option>
+                                        <option value="DAL">Dallas</option>
+                                        <option value="KC">Kansas City</option>
+                                        <option value="MIN">Minneapolis</option>
+                                        <option value="RIC">Richmond</option>
+                                        <option value="SF">San Francisco</option>
+                                        <option value="STL">St. Louis</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Select Metric:</label>
+                                    <select class="form-select" id="regionalMetricSelector">
+                                        <option value="farmland">Farmland Values</option>
+                                        <option value="demand">Loan Demand</option>
+                                        <option value="repayment">Repayment Rates</option>
+                                        <option value="income">Farm Income</option>
+                                    </select>
+                                    
+                                    <label class="form-label mt-3">Time Period:</label>
+                                    <select class="form-select" id="timePeriodSelector">
+                                        <option value="5y">Last 5 Years</option>
+                                        <option value="10y" selected>Last 10 Years</option>
+                                        <option value="all">All Available</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-map-marked-alt"></i> Regional Comparison
+                    </div>
+                    <div class="card-body">
+                        <div id="regionalChart" style="min-height: 400px;"></div>
+                        <div class="description-panel" id="regionalDescription">
+                            <strong>About this data:</strong> District surveys collect quarterly information from agricultural lenders about credit conditions in their Federal Reserve District. The diffusion index ranges from 0 to 200, with 100 indicating no change from the previous quarter.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Credit Conditions Tab -->
+            <div class="tab-pane fade" id="credit" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-percentage"></i> Interest Rates Trends
+                            </div>
+                            <div class="card-body">
+                                <div id="interestRateChart" style="min-height: 350px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-exclamation-triangle"></i> Delinquency Rates
+                            </div>
+                            <div class="card-body">
+                                <div id="delinquencyChart" style="min-height: 350px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <i class="fas fa-dollar-sign"></i> Loan Volume and Terms
+                    </div>
+                    <div class="card-body">
+                        <div id="loanVolumeChart" style="min-height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Data Explorer Tab -->
+            <div class="tab-pane fade" id="explorer" role="tabpanel">
+                <div class="data-controls">
+                    <h5>Build Your Custom Chart</h5>
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Search Series:</label>
+                            <input type="text" class="form-control" id="seriesSearch" placeholder="Type to search...">
+                            
+                            <div class="form-check mt-3">
+                                <input class="form-check-input" type="checkbox" id="showStatistics">
+                                <label class="form-check-label" for="showStatistics">
+                                    Show Statistics Table
+                                </label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="showDataDictionary">
+                                <label class="form-check-label" for="showDataDictionary">
+                                    Show Data Dictionary
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Select Series (unlimited, from all datasets):</label>
+                            <div class="series-selector" id="seriesSelector" style="max-height: 400px; overflow-y: auto;">
+                                <!-- Series checkboxes will be populated here -->
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Actions:</label>
+                            <div class="export-buttons">
+                                <button class="btn btn-primary btn-sm w-100 mb-2" onclick="updateCustomChart()">
+                                    <i class="fas fa-sync"></i> Update Chart
+                                </button>
+                                <button class="btn btn-success btn-sm w-100 mb-2" onclick="downloadChart()">
+                                    <i class="fas fa-download"></i> Download Chart
+                                </button>
+                                <button class="btn btn-info btn-sm w-100 mb-2" onclick="downloadData()">
+                                    <i class="fas fa-file-csv"></i> Download Data
+                                </button>
+                                <button class="btn btn-secondary btn-sm w-100 mb-2" onclick="showStatistics()">
+                                    <i class="fas fa-calculator"></i> Show Statistics
+                                </button>
+                                <label class="form-label mt-2">Correlation Type:</label>
+                                <select class="form-select form-select-sm mb-2" id="correlationType">
+                                    <option value="pearson">Pearson</option>
+                                    <option value="spearman">Spearman</option>
+                                </select>
+                                <button class="btn btn-warning btn-sm w-100" onclick="showCorrelationMatrix()">
+                                    <i class="fas fa-chart-area"></i> Correlation Matrix
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i> Custom Data Visualization
+                    </div>
+                    <div class="card-body">
+                        <div id="customChart" style="min-height: 400px;"></div>
+                    </div>
+                </div>
+                
+                <!-- Statistics Section -->
+                <div id="statisticsSection" style="display: none;" class="card mt-3">
+                    <div class="card-header">
+                        <i class="fas fa-calculator"></i> Summary Statistics
+                    </div>
+                    <div class="card-body">
+                        <div id="statsTableContainer" style="overflow-x: auto;">
+                            <!-- Statistics table will be populated here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Correlation Matrix -->
+                <div class="card mt-3" style="display: none;" id="correlationSection">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area"></i> Correlation Matrix
+                    </div>
+                    <div class="card-body">
+                        <div id="correlationMatrix" style="min-height: 400px;"></div>
+                    </div>
+                </div>
+                
+                <!-- Data Dictionary -->
+                <div id="dataDictionarySection" style="display: none;" class="card mt-3">
+                    <div class="card-header">
+                        <i class="fas fa-book"></i> Data Dictionary
+                    </div>
+                    <div class="card-body">
+                        <div id="dataDictionaryContainer">
+                            <!-- Data dictionary will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- About Tab -->
+            <div class="tab-pane fade" id="about" role="tabpanel">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h3>Why I Built This Dashboard</h3>
+                        <p>
+                            I created this dashboard while working on a research project that required extensive exploratory data analysis of Federal Reserve agricultural finance data. 
+                            As I found myself repeatedly downloading, processing, and visualizing these datasets, I realized I needed a more efficient way to explore the data and share 
+                            my findings with coauthors.
+                        </p>
+                        <p>
+                            What started as a personal research tool quickly evolved into something more. I realized this dashboard could be valuable for:
+                        </p>
+                        <ul>
+                            <li><strong>Fellow researchers</strong> working with agricultural finance data</li>
+                            <li><strong>Students</strong> in courses I may teach, providing hands-on experience with real Federal Reserve data</li>
+                            <li><strong>Industry professionals</strong> and policymakers interested in agricultural credit conditions</li>
+                            <li><strong>Anyone</strong> curious about trends in the agricultural economy</li>
+                        </ul>
+                        <p>
+                            I've given this dashboard a permanent home on my website for the future reference of myself, my students, my coauthors, and anyone else interested in 
+                            exploring this data. It's a living project that will continue to evolve based on user needs and feedback.
+                        </p>
+                        
+                        <div class="alert alert-info">
+                            <h5><i class="fas fa-comments"></i> Your Feedback is Welcome!</h5>
+                            <p class="mb-2">
+                                This dashboard is a work in progress, and I'm committed to improving it over time. I invite you to help shape its development by sharing:
+                            </p>
+                            <ul class="mb-2">
+                                <li>Suggestions for new features or additional data tabs</li>
+                                <li>Reports of any bugs or issues you encounter</li>
+                                <li>Ideas for making the dashboard more useful for teaching or research</li>
+                                <li>General feedback on usability and functionality</li>
+                            </ul>
+                            <p class="mb-0">
+                                Please send your feedback to: <a href="mailto:wnm007@vt.edu"><strong>wnm007@vt.edu</strong></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3>About This Dashboard</h3>
+                        <p>This interactive dashboard provides comprehensive visualization and analysis tools for Federal Reserve agricultural finance data. It combines three key datasets to offer insights into the U.S. agricultural economy.</p>
+                        
+                        <h4 class="mt-4">Data Sources</h4>
+                        <ul>
+                            <li><strong>District Surveys of Agricultural Credit Conditions:</strong> Quarterly surveys from agricultural lenders across seven Federal Reserve Districts</li>
+                            <li><strong>National Survey of Terms of Lending:</strong> Detailed information on non-real estate agricultural loans</li>
+                            <li><strong>Commercial Bank Call Report Data:</strong> Comprehensive banking data on agricultural lending</li>
+                        </ul>
+                        
+                        <h4 class="mt-4">Features</h4>
+                        <ul>
+                            <li>Interactive time series visualizations with zoom and pan capabilities</li>
+                            <li>Multi-series comparison tools</li>
+                            <li>Export functionality for charts (PNG) and data (CSV)</li>
+                            <li>Summary statistics for selected data series</li>
+                            <li>Automatic quarterly updates from Federal Reserve sources</li>
+                        </ul>
+                        
+                        <h4 class="mt-4">Contact</h4>
+                        <p>For questions, suggestions, or collaboration opportunities:</p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:wnm007@vt.edu">wnm007@vt.edu</a></p>
+                        
+                        <div class="alert alert-success mt-4">
+                            <i class="fas fa-sync-alt"></i> <strong>Last Data Update:</strong> Q2 2025<br>
+                            <small>This dashboard is updated quarterly following the release of new Federal Reserve data.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    
+    <!-- Load the enhanced dashboard JavaScript -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

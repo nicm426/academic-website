@@ -77,15 +77,15 @@
     "text": "Welcome to my blog where I share insights on food economics, data science applications in agriculture, and inflation forecasting methods.\nFirst post coming soon!"
   },
   {
-    "objectID": "dashboard.html",
-    "href": "dashboard.html",
+    "objectID": "food-inflation-dashboard.html",
+    "href": "food-inflation-dashboard.html",
     "title": "Food Inflation Dashboard",
     "section": "",
     "text": "This page will feature an interactive dashboard displaying:\n\nReal-time food price inflation forecasts\nComparison of various model predictions\nInteractive visualizations of macroeconomic drivers\nHistorical forecast accuracy metrics\nTime-varying parameter evolution\n\nThe dashboard is currently under development and will be deployed soon.\n\n\n\nMonthly forecast updates with automated data pulls\nInteractive charts showing inflation trends across food categories\nModel performance metrics comparing different forecasting approaches\nDownloadable forecast data for research and analysis\n\nCheck back soon for the live dashboard!"
   },
   {
-    "objectID": "dashboard.html#coming-soon",
-    "href": "dashboard.html#coming-soon",
+    "objectID": "food-inflation-dashboard.html#coming-soon",
+    "href": "food-inflation-dashboard.html#coming-soon",
     "title": "Food Inflation Dashboard",
     "section": "",
     "text": "This page will feature an interactive dashboard displaying:\n\nReal-time food price inflation forecasts\nComparison of various model predictions\nInteractive visualizations of macroeconomic drivers\nHistorical forecast accuracy metrics\nTime-varying parameter evolution\n\nThe dashboard is currently under development and will be deployed soon.\n\n\n\nMonthly forecast updates with automated data pulls\nInteractive charts showing inflation trends across food categories\nModel performance metrics comparing different forecasting approaches\nDownloadable forecast data for research and analysis\n\nCheck back soon for the live dashboard!"
