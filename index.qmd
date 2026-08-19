@@ -6,7 +6,10 @@ about:
   links:
     - icon: file-earmark-pdf
       text: CV
-      href: ./CV/McWilliams_CV.pdf
+      # Full URL: Quarto's about-template resolves hrefs against the site
+      # root, which breaks relative paths on a project Pages site served
+      # from /academic-website/.
+      href: https://nicm426.github.io/academic-website/CV/McWilliams_CV.pdf
     - icon: envelope
       text: Email
       href: mailto:wnm007@vt.edu
