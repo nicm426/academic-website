@@ -49,6 +49,5 @@ In summer 2026 I worked with the Agricultural Research and New Product Developme
 
 ## Quick Links
 
-- 📊 [Latest Food Inflation Forecast](food-inflation-dashboard.qmd)
-- 📝 [Recent Blog Posts](blog/index.qmd)  
-- 🎓 [Teaching Materials](teaching.qmd)
+- 📄 [Research](research.qmd)
+- 🎓 [Teaching](teaching.qmd)

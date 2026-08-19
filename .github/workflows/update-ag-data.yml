@@ -1,13 +1,16 @@
 name: Update Agricultural Data
 
-# Run quarterly on the 15th of January, April, July, October at 2 AM EST
+# Quarterly schedule is disabled: the ag-economy dashboard is not currently
+# published, and the last several scheduled runs failed and opened issues.
+# To re-enable, uncomment the schedule block below.
+#
+# on:
+#   schedule:
+#     # Cron format: minute hour day month day-of-week
+#     # 7 AM UTC = 2 AM EST (during standard time)
+#     - cron: '0 7 15 1,4,7,10 *'
 on:
-  schedule:
-    # Cron format: minute hour day month day-of-week
-    # 7 AM UTC = 2 AM EST (during standard time)
-    - cron: '0 7 15 1,4,7,10 *'
-  
-  # Allow manual trigger from GitHub Actions tab
+  # Manual trigger only, from the GitHub Actions tab
   workflow_dispatch:
     inputs:
       use_local:

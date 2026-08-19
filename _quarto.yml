@@ -1,8 +1,14 @@
 project:
   type: website
   output-dir: docs
+  # Only these pages are published. The dashboards and blog are kept in the
+  # repo but excluded from the render until they have real content; to bring
+  # one back, re-add it here (and to the navbar / resources below).
+  render:
+    - index.qmd
+    - research.qmd
+    - teaching.qmd
   resources:
-    - ag-economy-dashboard/
     - CV/
     - presentations/
 
@@ -18,14 +24,6 @@ website:
         text: Research
       - href: teaching.qmd
         text: Teaching
-      - text: Dashboards
-        menu:
-          - href: food-inflation-dashboard.qmd
-            text: Food Inflation Forecast
-          - href: ag-economy-dashboard/index.html
-            text: Agricultural Economy
-      - href: blog/index.qmd
-        text: Blog
     right:
       - icon: github
         href: https://github.com/nicm426
