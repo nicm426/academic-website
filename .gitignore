@@ -4,3 +4,7 @@
 .Ruserdata
 
 /.quarto/
+
+# Quarto build output (rendered in CI by .github/workflows/publish.yml)
+/docs/
+_site/

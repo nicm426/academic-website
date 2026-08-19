@@ -6,7 +6,7 @@ about:
   links:
     - icon: file-earmark-pdf
       text: CV
-      href: CV/McWilliams_CV.pdf
+      href: ./CV/McWilliams_CV.pdf
     - icon: envelope
       text: Email
       href: mailto:wnm007@vt.edu
@@ -36,10 +36,16 @@ My research focuses on the intersection of agricultural economics, quantitative 
 
 ## Current Research
 
-My current research develops novel methods for forecasting food price inflation by integrating high-dimensional macroeconomic data with machine learning approaches. This work aims to improve upon traditional forecasting models by capturing complex, nonlinear relationships while maintaining economic interpretability. I'm particularly interested in how macroeconomic shocks transmit through food systems and how advanced statistical methods can better predict these dynamics during periods of economic volatility.
+My dissertation, *Measuring, Monitoring, and Forecasting Across the Agri-Food Value Chain*, spans three essays on measurement, forecasting, and policy in agricultural markets.
+
+The first develops novel methods for forecasting food price inflation by integrating high-dimensional macroeconomic data with machine learning approaches, improving upon traditional forecasting models by capturing complex, nonlinear relationships while maintaining economic interpretability. This work is published in *Food Policy*.
+
+My current work builds a monthly Farm Financial Conditions Index using a mixed-frequency dynamic factor model, drawing on 127 indicators spanning credit markets, farm income, production costs, and asset values. The index identifies distinct episodes of agricultural financial stress since 1989 and leads severe farm financial distress by roughly one year.
+
+In summer 2026 I worked with the Agricultural Research and New Product Development team at CME Group, conducting research on new and existing agricultural derivatives products.
 
 ## Quick Links
 
-- 📊 [Latest Food Inflation Forecast](dashboard.qmd)
+- 📊 [Latest Food Inflation Forecast](food-inflation-dashboard.qmd)
 - 📝 [Recent Blog Posts](blog/index.qmd)  
 - 🎓 [Teaching Materials](teaching.qmd)

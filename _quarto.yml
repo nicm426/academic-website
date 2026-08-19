@@ -3,10 +3,13 @@ project:
   output-dir: docs
   resources:
     - ag-economy-dashboard/
+    - CV/
+    - presentations/
 
 website:
   title: "William N. McWilliams"
-  description: "PhD Student - Virginia Tech Department of Applied and Agricultural Economics"
+  description: "PhD Student - Virginia Tech Department of Agricultural and Applied Economics"
+  site-url: https://nicm426.github.io/academic-website/
   navbar:
     left:
       - href: index.qmd

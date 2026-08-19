@@ -2,14 +2,21 @@
 title: "Research"
 ---
 
+## Publications
+
+### Food Price Inflation Forecasting: Insights from a Macroeconomic Auto-Regressive Random Forest Approach
+McWilliams, W. N., S. Stewart, and O. Isengildina Massa. *Food Policy* 142 (2026): 103115. [[DOI]](https://doi.org/10.1016/j.foodpol.2026.103115)
+
+This study proposes a Macroeconomic Auto-Regressive Random Forest (MARRF) approach for forecasting annual U.S. food price inflation and evaluates its performance relative to the USDA's current SARIMA-based methodology. Combining the flexibility of ensemble machine learning with the interpretability of Generalized Time-Varying Parameters, the model draws high-dimensional macroeconomic information from the FRED-MD database to produce forecasts that are both accurate and economically informative.
+
+---
+
 ## Working Papers
 
-### Food Price Inflation Forecasting
-**Working paper - details coming soon**
+### Measuring Agricultural Financial Conditions: A Mixed-Frequency Dynamic Factor Approach
+*with Olga Isengildina Massa and Shamar Stewart*
 
-**Presentations:**
-- NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management (2025)
-- Agricultural and Applied Economics Association Annual Meeting (2024)
+This paper develops a monthly Farm Financial Conditions Index (FFCI) using a mixed-frequency dynamic factor model applied to 127 indicators spanning credit markets, farm income, production costs, asset values, and regional lending conditions. The index identifies ten distinct episodes of agricultural financial stress over 1989–2025. Validation against Chapter 12 farm bankruptcy filings shows that the index leads severe financial distress by approximately one year, and subindex analysis reveals a sequential credit channel: credit supply tightens first, cost pressures emerge next, delinquencies rise with a lag, and asset values adjust last.
 
 ---
 
@@ -25,6 +32,8 @@ My research focuses on the intersection of agricultural economics, quantitative 
 ---
 
 ## Conference Presentations
+
+- **2026**: Agricultural and Applied Economics Association Annual Meeting, Kansas City, MO - "Measuring Agricultural Financial Conditions: A Mixed-Frequency Dynamic Factor Approach" (poster)
 
 - **2025**: NCCC-134 Conference on Applied Commodity Price Analysis, Forecasting, and Market Risk Management - "Food Price Inflation Forecasting: Insights from a Macroeconomic Auto-Regressive Random Forest Approach" [[Slides]](presentations/NCCC134_2025_slides.pdf)
 
